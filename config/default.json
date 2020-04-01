@@ -1,0 +1,5 @@
+{
+  "name": "Dev Blog API - Development",
+  "nodePort": 5000,
+  "mongoURI": ""
+}
