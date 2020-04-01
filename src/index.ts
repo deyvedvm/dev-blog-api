@@ -1,8 +1,16 @@
 import express from "express";
+import morgan from 'morgan';
+import config from 'config';
 
-const PORT = process.env.PORT || 5000;
+import database from './database';
+
+const PORT = process.env.PORT || config.get('nodePort');
 
 const app = express();
+
+app.use(morgan('dev'));
+
+database(config);
 
 app.get('/', (req, res) => {
     res.send('API running');

@@ -18,12 +18,13 @@
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "config": "^3.3.0",
+    "config": "^3.3.1",
     "express": "^4.17.1",
     "express-validator": "^6.4.0",
     "gravatar": "^1.8.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.4",
+    "morgan": "^1.10.0",
     "request": "^2.88.2"
   },
   "devDependencies": {
@@ -35,6 +36,7 @@
     "@types/jest": "^25.1.4",
     "@types/jsonwebtoken": "^8.3.8",
     "@types/mongoose": "^5.7.6",
+    "@types/morgan": "^1.9.0",
     "@types/nodemon": "^1.19.0",
     "@types/request": "^2.48.4",
     "jest": "^25.1.0",
