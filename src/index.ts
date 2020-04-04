@@ -10,6 +10,7 @@ const PORT = process.env.PORT || config.get('nodePort');
 
 const app = express();
 
+app.use(express.json());
 app.use(morgan('dev'));
 app.use('/api/users', users);
 
