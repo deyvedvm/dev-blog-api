@@ -1,22 +1,20 @@
 import mongoose from 'mongoose';
 import {IConfig} from "config";
 
-const connect = async (config: IConfig) => {
+const connect = (config: IConfig) => {
 
     const mongoURI: string = config.get('mongoURI');
 
-    try {
-        await mongoose.connect(mongoURI, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-            useCreateIndex: true
-        });
+    mongoose.connect(mongoURI, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useCreateIndex: true
+    }).then(() => {
         console.log(`Successfully connected to MongoDB.`);
-
-    } catch (e) {
-        console.log("Error connecting to database: ", e.message);
+    }).catch((err) => {
+        console.log("Error connecting to database: ", err.message);
         process.exit(1);
-    }
+    });
 };
 
 export default connect;
