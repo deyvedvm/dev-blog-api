@@ -14,6 +14,8 @@ router.get('/', async (req: Request, res: Response) => {
 
     const users = await User.find().sort('name');
 
+    // users.map(({password, ...users}) => users);
+
     return res.send(users.map(user => pickFields(user)));
 });
 
@@ -65,7 +67,9 @@ router.delete('/:id', async (req: Request, res: Response) => {
 });
 
 function generateToken(payload: any) {
-    return jwt.sign(payload, config.get('jwtSecret'), {expiresIn: '360000'});
+    const jwtSecret: string = process.env.JWT_SECRET || config.get('jwtSecret');
+
+    return jwt.sign(payload, jwtSecret, {expiresIn: '360000'});
 }
 
 function pickFields(user: any) {
